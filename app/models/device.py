@@ -1,5 +1,6 @@
-from sqlalchemy import Column, String
+from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
+
 from app.core.db import Base
 
 
@@ -11,3 +12,4 @@ class Device(Base):
         'Data',
         cascade='delete'
     )
+    user_id = Column(Integer, ForeignKey('user.id'))

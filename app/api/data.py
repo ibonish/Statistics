@@ -5,6 +5,7 @@ from app.core.db import get_async_session
 from app.crud.data import data_crud
 from app.schemas.data import DataCreate, DataDB
 
+
 router = APIRouter()
 
 
@@ -17,6 +18,15 @@ async def create_new_data(
         data: DataCreate,
         session: AsyncSession = Depends(get_async_session),
 ):
+    """
+    Отправка данных. Формат:\n
+        {
+            "device_id": 1, - Идентификатор устройства
+            "x": 100,
+            "y": 200,
+            "z": 300
+        }
+    """
     new_data = await data_crud.create(data, session)
     return new_data
 
@@ -29,5 +39,8 @@ async def create_new_data(
 async def get_all_data(
         session: AsyncSession = Depends(get_async_session),
 ):
+    """
+    Получение всех данных.
+    """
     all_data = await data_crud.get_multi(session)
     return all_data

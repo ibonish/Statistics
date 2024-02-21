@@ -9,6 +9,7 @@ class DeviceCreate(BaseModel):
 
 class DeviceDB(DeviceCreate):
     id: int
+    user_id: Optional[int]
 
     class Config:
         orm_mode = True
