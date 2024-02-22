@@ -53,14 +53,14 @@ async def analyze_statistics_from_device(
             "медиана": 30
         }
     """
-    data_list = await data_crud.get_all_by_attribute(
+    data = await data_crud.get_all_by_attribute(
         attr,
         session,
         start_date,
         end_date,
         device_id
     )
-    return get_data_statistics(data_list)
+    return get_data_statistics(data)
 
 
 @router.get(

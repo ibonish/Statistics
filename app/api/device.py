@@ -25,7 +25,7 @@ async def create_device(
     Эндпоинт для создания нового устройства.\n
     Если запрос отправлен от аторизованного пользователя,\n
     его идентификатор сохранается в бд в таблице device.\n
-       * name - необязательно (имя устройства)
+       * name - имя устройства
     """
     new_reservation = await device_crud.create(
         reservation, session, user
